@@ -245,6 +245,6 @@ if __name__ == '__main__':
     # app.run(host="127.0.0.1", debug=True, port=8888)
     
     # IIT-Dh server
-    context = ('flaskssl/1f9476e3959ebe60.crt', 'flaskssl/star_iitdh_key.key')
+    context = ('flaskssl/8f0d9ad659139116.crt', 'flaskssl/star_iitdh_key.key')
     app.run(host="0.0.0.0", debug=True, port=443, ssl_context=context)
     
