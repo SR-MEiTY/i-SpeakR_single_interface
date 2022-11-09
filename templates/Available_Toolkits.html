@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<!--
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+		<title>i-SpeakR - Available Toolkits</title>
+	</head>
+
+	<body lang="en-IN">
+
+		<div class="flex-container title_pane">
+			<a href="https://www.meity.gov.in/national-language-translation-mission"><img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI"></a>
+			<a href="https://sr-meity.github.io/Manuals/"><img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px"></a>
+		</div>
+
+		<div class="flex-container menu_pane">
+			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('about.html', '_self');">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('resources.html', '_self');">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('I-MSV.html', '_self');">
+				I-MSV Challenge
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink"  onclick="window.open('demo.html', '_self');">
+				Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
+				Hands-on
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+		<div class="flex-container dashboard">
+			<div class="content_space">				
+				<div class="heading1">Available Toolkits</div>
+				<div class="subsection">
+					<div class="text">
+
+						<table>
+							<tr>
+								<th><b>Toolkit</b></th>
+								<th><b>Developer</b></th>
+								<th><b>Available Functions</b></th>
+								<th><b>Language/ Technology</b></th>
+								<th><b>Current Status</b></th>
+							</tr>
+							<tr>
+								<td>SpeechBrain [1] <br/>Yoshua Bengio et al.</td>
+								<td>Mila-Quebec AI Institute, Université de Montréal, LIA - Avignon Université, Ohio State University, Aalto University, Università Politecnica delle Marche, McGill University, Indian Institute of Technology Madras, IRIT - Université Paul Sabatier, Toyota Technological Institute at Chicago, University of Edinburgh, Academia Sinica, Taiwan, NVIDIA, Université de Sherbrooke, Samsung-SAIT, 	CaMLSys - University of Cambridge</td>
+								<td>ASR, ASV, Speech Enhancement/Processing.<br/>Methods: X-vectors [2] + PLDA, ECAPA-TDNN [3] + cosine dist. VoxCeleb1, VoxCeleb2.<br/>Best EER on VoxCeleb by any open-source toolkit</td>
+								<td>Python/PyTorch</td>
+								<td>In Development</td>
+							</tr>
+							<tr>
+								<td>ESPnet [4]</td>
+								<td>Johns Hopkins University, Mitsubishi Electric Research Laboratories, NTT Communication Science Laboratories, Nagoya  University, Retrieva, Inc., Preferred Networks, Inc., Waseda University, Paderborn University, Doshisha University</td>
+								<td>ASR, TTS, Speech Enhancement, Translation, Language Understanding, Summarization, Voice Conversion</td>
+								<td>Kaldi, Python/PyTorch</td>
+								<td>In Development</td>
+							</tr>
+							<tr>
+								<td>NeMo[5]</td>
+								<td>NVIDIA</td>
+								<td>ASR, NLP, TTS</td>
+								<td>Python/PyTorch</td>
+								<td>In Development</td>
+							</tr>
+							<tr>
+								<td>Fairseq(-py) [6]</td>
+								<td>Facebook, Google Brain</td>
+								<td>ASR, NLP, wav2vec</td>
+								<td>Python/PyTorch</td>
+								<td>In Development</td>
+							</tr>
+							<tr>
+								<td>Bob.Spear [7]</td>
+								<td>Idiap Research Institute, Martigny, Switzerland</td>
+								<td>Speaker Recognition<br/> GMM-UBM. I-vectors, PLDA</td>
+								<td>Python, C++</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>ALIZE [8]</td>
+								<td>LIA/CNRS, Universit ́e d’Avignon Agroparc, LIUM/CNRS, Universit ́e du Maine Avenue Laennec</td>
+								<td>GMM, MAP</td>
+								<td>C++</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Kaldi</td>
+								<td>Daniel Povey</td>
+								<td>ASR</td>
+								<td>Shell, C++, Python</td>
+								<td>
+								</td>
+							</tr>
+						</table>
+
+						<ol>
+							<li>
+							Ravanelli, M., Parcollet, T.,Plantinga, P., Rouhe, A., Cornell, S., Lugosch, L., ... &amp; Bengio, Y. (2021). SpeechBrain: A general-purpose speech toolkit. arXiv preprint arXiv:2106.04624
+							</li>
+
+							<li>
+							D. Snyder, D. Garcia-Romero, G. Sell, D. Povey, and S. Khudanpur. X-vectors: Robust DNN embeddings for speaker recognition. In Proc. of ICASSP, 2018.
+							</li>
+
+							<li>
+							Desplanques, B., Thienpondt, J., &amp; Demuynck, K. (2020). ECAPA-TDNN: Emphasized Channel Attention, Propagation and
+							Aggregation in TDNN based speaker verification. arXiv preprint arXiv:2005.07143
+							</li>
+
+							<li>
+							Watanabe, S., Hori, T., Karita, S., Hayashi, T., Nishitoba, J., Unno, Y., ... &amp; Ochiai, T. (2018). Espnet: End-to-end speech
+							processing toolkit. arXiv preprint arXiv:1804.00015
+							</li>
+
+							<li>
+							Kuchaiev, O., Li, J., Nguyen, H., Hrinchuk, O., Leary, R., Ginsburg, B., ... &amp; Cohen, J. M. (2019). Nemo: a toolkit for building AI applications using neural modules. arXiv preprint arXiv:1909.09577
+							</li>
+
+							<li>
+							Ott, M., Edunov, S., Baevski, A., Fan, A., Gross, S., Ng, N., ... &amp; Auli, M. (2019). fairseq: A fast, extensible toolkit for sequence modeling. arXiv preprint arXiv:1904.01038
+							</li>
+
+							<li>
+							E. Khoury, L. E. Shafey and S. Marcel, &quot;Spear: An open source toolbox for speaker recognition based on Bob,&quot; 2014 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2014, pp. 1655-1659, doi: 10.1109/ICASSP.2014.6853879.
+							</li>
+
+							<li>
+							J. . -F. Bonastre, F. Wils and S. Meignier, &quot;ALIZE, a free	toolkit for speaker recognition,&quot; Proceedings. (ICASSP '05).
+							IEEE International Conference on Acoustics, Speech, and Signal 	Processing, 2005., 2005, pp. I/737-I/740 Vol. 1, doi:
+							10.1109/ICASSP.2005.1415219.
+							</li>
+
+						</ol>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="flex-container footer">
+			<div>© Copyright 2022. Designed and maintained by IIT Dharwad.</div>
+		</div>
+
+	</body>
+</html>

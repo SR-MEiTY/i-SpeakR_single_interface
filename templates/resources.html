@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<!--
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+		<title>i-SpeakR - Resources</title>
+		<script>
+			function hover() {
+				document.getElementById('github_logo').setAttribute('src', '{{url_for("static", filename="/images/github_logo2.png")}}');
+			}
+
+			function unhover() {
+				document.getElementById('github_logo').setAttribute('src', '{{url_for("static", filename="/images/github_logo.png")}}');
+			}
+		</script>
+	</head>
+
+	<body lang="en-IN">
+
+		<div class="flex-container title_pane">
+			<a href="https://www.meity.gov.in/national-language-translation-mission"><img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI"></a>
+			<a href="https://sr-meity.github.io/Manuals/"><img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px"></a>
+		</div>
+
+		<div class="flex-container menu_pane">
+			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('about.html', '_self');">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink selected_menu">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('I-MSV.html', '_self');">
+				I-MSV Challenge
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
+				Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
+				Hands-on
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+		<div class="flex-container dashboard">
+			<div class="content_space">				
+				<!--<div class="heading1">Resources</div>-->
+				<div class="heading2">Important links</div>
+				<div class="subsection flex_container">
+
+<!--
+					<div class="display_tablet hyperlink" onclick="window.open('demo.html', '_blank');">
+						INDIC Speaker Recognition DEMO
+					</div>
+-->
+					<div class="display_tablet hyperlink" onclick="window.open('SRS.html', '_blank');">
+						Software Requirement Specifications
+					</div>
+					<div class="display_tablet hyperlink" onclick="window.open('https://github.com/SR-MEiTY/i-SpeakR', '_blank');" onmouseover="hover();" onmouseout="unhover();">
+						<img id="github_logo" src="{{url_for('static', filename='/images/github_logo.png')}}"  alt="Github Repo" title="Github Repo" height="75px">
+						Github Repository
+					</div>
+					<div class="display_tablet hyperlink" onclick="window.open('data_key', '_blank');">
+						I-MSV dataset key files
+					</div>
+				</div>
+
+
+				<div class="heading2">Tutorials</div>
+				<div class="subsection">
+
+					<div class="display_tablet hyperlink" onclick="window.open('https://keras.io/examples/audio/speaker_recognition_using_cnn/', '_blank');">
+						Keras Speaker Recognition
+					</div>
+					<div class="display_tablet hyperlink" onclick="window.open('https://dspace.mit.edu/handle/1721.1/70480', '_blank');">
+						A Tutorial on Text-Independent Speaker Verification, MIT
+					</div>
+					<div class="display_tablet hyperlink" onclick="window.open('https://www.sciencedirect.com/science/article/pii/S0167639317302637', '_blank');">
+						Speaker Recognition from Whispered Speech
+					</div>
+
+				</div>
+
+
+				<div class="heading2" onclick="window.open('Available_Toolkits.html', '_blank');" style="cursor: pointer;">Other available toolkits &#8618;</div>
+				<div class="subsection">
+
+					<div class="display_tablet hyperlink" onclick="window.open('https://speechbrain.github.io/', '_blank');">
+						Speech Brain: A PyTorch Powered Speech Toolkit
+					</div>
+					<div class="display_tablet hyperlink" onclick="window.open('https://www.idiap.ch/software/bob/docs/bob/bob.bio.spear/stable/index.html', '_blank');">
+						SPEAR: A Speaker Recognition Toolkit based on Bob
+					</div>
+					<div class="display_tablet hyperlink" onclick="window.open('https://alize.univ-avignon.fr/', '_blank');">
+						ALIZÉ: Opensource Speaker Recognition
+					</div>
+					<div class="display_tablet hyperlink" onclick="window.open('https://projets-lium.univ-lemans.fr/sidekit/', '_blank');">
+						SIDEKIT: Open source package for Speaker and Language recognition
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="flex-container footer">
+			<div>© Copyright 2022. Designed and maintained by IIT Dharwad.</div>
+		</div>
+
+	</body>
+</html>

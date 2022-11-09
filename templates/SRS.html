@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<!--
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+		<title>i-SpeakR - Software Requirement Specification</title>
+	</head>
+
+	<body lang="en-IN">
+
+		<div class="flex-container title_pane">
+			<a href="https://www.meity.gov.in/national-language-translation-mission"><img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI"></a>
+			<a href="https://sr-meity.github.io/Manuals/"><img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px"></a>
+		</div>
+
+		<div class="flex-container menu_pane">
+			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('about.html', '_self');">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('resources.html', '_self');">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('I-MSV.html', '_self');">
+				I-MSV Challenge
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
+				Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
+				Hands-on
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+		<div class="flex-container dashboard">
+			<div class="content_space">				
+				<div class="heading1">Software Requirement Specifications</div>
+				<div class="subsection">
+					<div class="text">
+
+					<p class="heading2">Modules</p>
+					<div style="padding-left:10px;">Data processing module
+						<div style="padding-left:20px;"><b>Listing out wav files</b> This part will have two options:
+							<div style="padding-left:30px;"><b>Infer:</b>This is for Novices. Users need to provide path to three separate folders. All wav files in each set must be directly placed in the respective folders without and sub-folders.
+								<div style="padding-left:40px;">DEV – Development set files</div>
+								<div style="padding-left:40px;">ENR – Enrollment set files</div>
+								<div style="padding-left:40px;">TEST – Testing set files</div>
+							</div>
+							<div style="padding-left:30px;"><b>Specify:</b> This option for advanced users. User needs to provide path containing csv files. The csv filename for development should start with “DEV”, csv filename for enrollment should start with “ENR”, and the csv 			filename for testing should start with “TEST”. The csv files need to have the following fields:
+								<div style="padding-left:40px;">utterance_id: Unique ID for each utterances listed in the csv file (required)</div>
+								<div style="padding-left:40px;">speaker_id:	Speaker ID corresponding to each utterance in the csv file (required)</div>
+								<div style="padding-left:40px;">wav_path: Path to the wav file for each utterance in the csv file (required)</div>
+								<div style="padding-left:40px;">gender: Gender of the speaker for each utterance (optional)</div>
+								<div style="padding-left:40px;">sensor: Sensor used to record each utterance (optional)</div>
+								<div style="padding-left:40px;">language: Language used for each utterance (optional)</div>
+							</div>
+						</div>
+
+						<div style="padding-left:20px;"><b>Checking sampling frequency</b>: By default 16000Hz is used as the sampling frequency. Users can specify a different sampling frequency in the <i><u>config.ini</u></i> file.</div>
+
+						<div style="padding-left:20px;"><b>Normalization</b>: By default, the wav files are normalized by <i><u>mean subtraction</u></i> and then <i><u>dividing by the maximum</u></i> value. Users can add other normalization strategies.</div>
+
+						<div style="padding-left:20px;"><b>Sub-utterance computation</b> – Segmentation of the wav files to sub-utterance is done. Development and enrollment utterances are chopped into approximately <i><u>50s segments</u></i>. Test utterances are chopped into approximately <i><u>[10s, 20s, 30s, 40s, 50s, 60s]</u></i> segments. Care is taken to split the utterances only at silence regions using sample-wise VAD decisions. Voiced samples are selected based on sample energies greater than a threshold of 60% of average energy of the utterance.</div>
+
+						<div style="padding-left:20px;"><b>Feature Computation</b>: For each sub-utterance a feature is computed.
+							<div style="padding-left:30px;">MFCC: A flag is provided for user to choose whether c0 is required or not. If c0 is not required, then N_MFCC+1 coefficients are computed and c0 is ignored.</div>
+						</div>
+
+						<div style="padding-left:20px;"><b>VAD</b>: The computed features per frame are selected based on a VAD on the frame-wise energy. The selected frames are stored as a feature file in the output folder.</div>
+
+						<div style="padding-left:20px;"><b>Feature Warping</b>:
+							<div style="padding-left:30px;">CMVN</div>
+							<div style="padding-left:30px;">CMN</div>
+							<div style="padding-left:30px;">Gaussian warping</div>
+						</div>
+					</div>
+
+					<div style="padding-left:20px;">Background model training  module:
+						<div style="padding-left:30px;">GMM-UBM</div>
+						<div style="padding-left:30px;">T-Variability matrix computation</div>
+						<div style="padding-left:30px;">TDNN X-vector</div>
+						<div style="padding-left:30px;">Custom model</div>
+					</div>
+
+					<div style="padding-left:20px;">Enrollment module:
+						<div style="padding-left:30px;">I-vector extraction</div>
+						<div style="padding-left:30px;">X-vector extraction</div>
+					</div>
+
+					<div style="padding-left:20px;">Post-processing  module
+						<div style="padding-left:30px;">LDA</div>
+						<div style="padding-left:30px;">WCCN normalization</div>
+					</div>
+
+					<div style="padding-left:20px;">Front-end classifier module
+						<div style="padding-left:30px;">PLDA</div>
+						<div style="padding-left:30px;">Cosine distance</div>
+					</div>
+
+					<div style="padding-left:20px;">Inference and Prototyping API  module</div>
+
+					<div style="padding-left:20px;">Visualization module:
+						<div style="padding-left:30px;">ROC</div>
+						<div style="padding-left:30px;">DET curves</div>
+					</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="flex-container footer">
+			<div>© Copyright 2022. Designed and maintained by IIT Dharwad.</div>
+		</div>
+
+	</body>
+</html>

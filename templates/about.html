@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<!--
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+		<title>i-SpeakR - About</title>
+	</head>
+
+	<body lang="en-IN">
+
+		<div class="flex-container title_pane">
+			<a href="https://www.meity.gov.in/national-language-translation-mission"><img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI"></a>
+			<a href="https://sr-meity.github.io/Manuals/"><img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px"></a>
+		</div>
+
+		<div class="flex-container menu_pane">
+			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink selected_menu">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('resources.html', '_self');">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('I-MSV.html', '_self');">
+				I-MSV Challenge
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
+				Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
+				Hands-on
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+		<div class="flex-container dashboard">
+			<div class="content_space">				
+				<div class="heading2">Brief summary</div>
+				<div class="subsection">
+					<div class="text">
+
+						<table>
+							<tr>
+								<td class="left_col">Project Title:</td>
+								<td class="right_col">Development and Deployment of Scalable Speaker Recognition Technology in Different Applications</td>
+							</tr>
+							<tr>
+								<td class="left_col">Lead Institutes:</td>
+								<td class="right_col">IIT Dharwad</td>
+							</tr>
+							<tr>
+								<td class="left_col">Lead Investigator:</td>
+								<td class="right_col">S R Mahadeva Prasanna</td>
+							</tr>
+							<tr>
+								<td class="left_col">Partners:</td>
+								<td class="right_col">IIIT Dharwad, KLETech University Hubballi, CDAC Kolkata, NIT Nagaland, NIT Patna, KL University Vijayawada.</td>
+							</tr>
+							<tr>
+								<td class="left_col">Startup:</td>
+								<td class="right_col">To be identified through open call and also through CoE, IIT Madras</td>
+							</tr>
+							<tr>
+								<td class="left_col">Deliverables:</td>
+								<td class="right_col">
+								</td>
+							</tr>
+						</table>
+						
+					</div>
+				</div>
+
+				<div class="heading2">Deliverables</div>
+				<div class="subsection">
+					<div class="text">
+						<p>1. Speaker recognition databases for Indian context i.e., multilingual, multi-dialect, multi-accent, multi-sensor, multi-channel, multi-environment and limited data conditions. (1000 hrs with at least 1000 speakers from multilingual situation of India)</p>
+						<p>2. A speaker recognition system that works well for Indian settings.</p>
+						<p>3. Voice OTP based person authentication </p>
+						<p>4. Voice based person identification application for call center scenario</p>
+						<p>5. Forensic speaker identification and verification</p> 
+						<p>6. Speaker recognition system on embedded platform.</p>
+					</div>
+				</div>
+
+				<div class="heading2">Motivation:</div>
+				<div class="subsection">
+					<div class="text">
+						Speaker recognition focuses on recognizing speakers using the speaker-specific information present in the speech signal. The speaker recognition technology may be broadly divided into speaker verification and speaker identification. The goal of speaker verification is to validate the identity claim of a speaker. It is a binary classification task of either accepting or rejecting the identity claim. The goal of speaker identification is to identify the speaker of the given speech signal. It differs from speaker verification in the sense that the given speech signal will not come with any claim of identity. Speaker identification can be built in closed-set, open-set or verification through identification frameworks. In closed-set conditions, the identification is only among the known set of N speakers of a group.  Alternatively, in open-set conditions, the speech signal may come from a speaker who may be outside the group of N speakers of a group. The verification through identification framework will enable validating the identity claim apart from identification.  Thus this framework achieves binary classification without a threshold using N models.
+					</div>
+
+					<div class="text">
+						The applications of speaker verification and identification also depend on the framework chosen. The speaker verification is mainly for person authentication using speech as biometric. The closed-set case is for the scenario where it is always used by a set of N speakers and stake of attempt to gaining entry by an (N+1)th speaker is not risky.  In the case of open-set, any attempt by an unknown (N+1)th speaker needs to be thwarted. The verification-through-identification will help in validating the identity claim. Thus the framework needs to be chosen based on application requirements. 
+					</div>
+
+					<div class="text">
+						The speaker recognition technologies currently being deployed in the Indian scenario are mostly borrowed technology from elsewhere. The published literature shows good performance, typically, less than 1% EER which makes them candidates for deployment in practical settings and hence commercial exploitation. These performances are for a well orchestrated operating scenario available abroad,  like single speaker and operating from a less noisy background office set up. There are several issues when we try to deploy such technologies in an Indian setting. The issues with these technologies are, they are not developed by keeping Indian operating conditions in mind. They do not consider complex settings like multispeaker, multilingual, multi-dialect and multi-accent, multi-channel, multi-sensor, multi-environment, anti spoofing and fake speech.  Further, the operating requirements can be having either too small data or too large data. The application requirements can vary over a wide range, starting from forensic to singer identification.  All these complex settings, make the speaker recognition system performance to have much higher EERs. 
+					</div>
+				</div>
+
+				<div class="heading2">Methodology:</div>
+				<div class="subsection">
+					<div class="text">
+						The work aims at Development and Deployment of Scalable Speaker Recognition Technology in Different Applications by a consortium of academic institutions, industry and startups. The speaker recognition technology has matured enough, i.e., approaches for verifying or identifying speakers which can be used for deployment. However, we need to address the above mentioned practical issues while deploying in an Indian setting. The speaker recognition technology may become the next big bottleneck as increasingly more and more speech mode applications are being deployed in practice. If we consider the speaker recognition technology as the kernel of  an application to be deployed, approaches to handle above mentioned issues may be considered as wrappers around it. These need to be addressed by collecting data, studying the issues, developing technological wrappers to handle them, performing field study, fine tuning and then deploying. 
+					</div>
+
+					<div class="text">
+						The academic groups will take care of literature review, exploration, implementation, and refinement of technologies based on the needs from industry and startups. Based on this, patents and publications will be generated. The field requirements and practical challenges will be brought to the table by startups, industry and user agencies. The academic groups will refine and tune the technologies to meet these requirements and challenges. The startups, industry and user agencies will help in speech data collection, conduct field trials and give feedback. This cycle will continue for the maturity of technology and deployment in the field. After this, transfer of technology will be made to the startups, industry and user agencies. 
+					</div>
+				</div>
+
+				<div class="heading2">Speaker Recognition & Applications:</div>
+				<div class="subsection">
+					<div class="text">
+						The applications of speaker verification and speaker identification, but not limited to, include person authentication services, forensic speaker identification, access control, voice dialing, mobile banking, speaker labeling of meeting recordings, and personalized caller identification. Two variants of technology are required, namely, lightweight and deep one. The light weight one is needed for deployment on an edge device and also nearly real time operation. The deep one can be in client-server model and nearly real time operation may not be a severe requirement, but false access to the system may be risky. The kernel of the speaker recognition technologies will still remain as available elsewhere, like GMM-UBM and i-vector for light weight, x-vector and other deep learning approaches for deep ones. However, what will be different is in terms of wrappers around these kernels to make them usable under different operating conditions. These wrappers can be either  simple call flow and signal processing steps or deep ones based on learnt wrappers from large amounts of data in the manner of representation learning and pattern discovery. The goal will be to to understand user requirements, develop and deploy speaker recognition technologies for Indian operating scenarios. The consortium will develop several modules starting with a user interface to kernels to be used as off the shelf components by users, especially, start ups for building and deploying technologies. The consortium will focus on developing technologies keeping in mind all these requirements. 
+					</div>
+
+					<div class="text">
+						The consortium will focus on three broad technologies, namely, voice mode OTP for person authentication, voice based person identification in call center scenario and speaker identification in forensic scenario. The voice based OTP will be needed for remote authentication over phone for services like AADHAR verification. The voice based person identification in call center scenario is to automatically identify the user by the system before lending them services. The forensic case involves recordings from different transactions and identifying the possible person by matching with the suspect 's voice.  The approach will be to get the user agencies and industries involved onboard in the beginning of the project, use their framework to deploy different versions of the technology and scale them to be useful in an Indian setting.
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="flex-container footer">
+			<div>© Copyright 2022. Designed and maintained by IIT Dharwad.</div>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,195 @@
+@page{
+	size: landscape; 
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 16px;
+	vertical-align: baseline;
+	background: transparent;
+	font-family: "Fira Sans", sans-serif;
+	font-size: 16px;
+}
+html, body {
+	width: 100%;
+    margin: auto;
+}
+body{
+	position: relative;
+	color: rgba(47, 48, 47, 1);
+}
+ul li {
+	position: relative;
+	width: 100%;
+	text-align: left;
+}
+div {
+	word-wrap: break-word;
+	margin: 3px;
+}
+.flex-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.title_pane{
+	position: relative;
+	width: 100%;
+	margin: 0 auto 1% auto;;
+	height: 15%;
+}
+.menu_pane{
+	position: relative;
+	width: 100%;
+	margin: auto;
+	height: 7%;
+	background-color: rgba(216, 235, 240, 1);
+/*	
+	background-image: linear-gradient(to right, rgba(216, 235, 240, 1), white);
+	background-image: linear-gradient(to left, rgba(216, 235, 240, 1), white);
+*/
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	box-shadow: 0px 0px 5px 5px rgba(216, 235, 240, 1);
+}
+.dashboard{
+	position: relative;
+	width: 80%;
+	margin: 30px auto 50px auto;
+	min-height: 65%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.footer{
+	position: relative;
+	width: 100%;
+	margin: auto;
+	height: 20%;
+	text-align: center;
+	justify-content: center;
+	background-color: rgba(65, 99, 68, 1);
+	color: white;
+	font-size: 12px;
+	box-shadow: 0px 0px 5px 5px rgba(65, 99, 68, 1);
+}
+.menu_items{
+	position: relative;
+	height: 80%;
+	border-bottom: 5px solid transparent;
+	padding:10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 900;
+	color: rgba(47, 48, 47, 1);
+}
+.menu_items:hover{
+	border-bottom: 5px solid rgba(28, 18, 222, 1);
+}
+.selected_menu{
+	background-color: rgba(28, 18, 222, 1);
+	color: rgba(237, 239, 242, 1);
+	font-weight: 900;
+	border-radius: 3px;
+}
+.empty_menu_item{
+	display: flex;
+	height: 35px;
+	width: 75px;
+}
+.content_space{
+	position: relative;
+	width: 100%;
+}
+.subsection{
+	position: relative;
+	width: 100%;
+	margin: auto;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-around;
+}
+.heading1{
+	font-family: "Yanone Kaffeesatz", sans-serif; /* "DynaPuff", sans-serif; */
+	font-weight: bold;
+	font-size: 35px;
+	padding: 3px 10px 3px 10px;
+	color: gray;
+	display: block;	
+}
+.heading1_right{
+	font-family: "Yanone Kaffeesatz", sans-serif;
+	font-weight: bold;
+	font-size: 50px;
+	padding: 3px 10px 3px 10px;
+	color: gray;
+	display: block;
+	text-align: right;
+}
+.heading2{
+	font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 20px 0px 3px 0px;
+	color: gray;
+	display: block;
+	text-align: center;
+}
+.hyperlink{
+	cursor: pointer;
+}
+.text{
+	position: relative;
+	width: 100%;
+	text-align: justify;
+	text-justify: inter-word;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: rgba(237, 239, 242, 0.5);
+	border: 1px solid transparent;
+	box-shadow: 5px 5px 5px #BBF;
+	font-weight: 300;
+}
+.text:hover{
+	box-shadow: 15px 15px 10px #BBF; 
+}
+.display_tablet{
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 200px;
+	height: 100px;
+	word-wrap: break-word;
+	border-radius: 10px;
+	box-shadow: 1px 1px 3px 1px rgba(216, 235, 240, 1);
+	background-color: rgba(216, 235, 240, 1);
+}
+.display_tablet:hover{
+	box-shadow: 3px 3px 5px 3px gray;
+	font-weight: 900;
+	color: white;
+	background-color: rgba(38, 81, 145,1);
+}
+.logo_shadow{
+	border-radius: 5px; 
+	border: 3px solid #EEE;
+	box-shadow: 5px 5px 5px #BBF; 
+}
+.logo_shadow:hover{
+	/*filter: invert(100%);*/
+	box-shadow: 15px 15px 10px #BBF; 
+}
+.left_col{
+	position: relative;
+	width: 20%;
+}
+.right_col{
+	position: relative;
+	width: 80%;
+}

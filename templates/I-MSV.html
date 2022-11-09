@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<!--
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/css/i-msv.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+
+		<title>i-SpeakR - I-MSV Challenge</title>
+
+		<script type="text/javascript">
+			function display_info(id){
+				var els = document.getElementsByClassName("submenu_item");
+				Array.prototype.forEach.call(els, function(el){
+				    el.style.borderRight = "10px solid transparent";
+				    el.style.backgroundColor = "rgba(216, 235, 240, 0.5)";
+				});
+				var els = document.getElementsByClassName("information_item");
+				Array.prototype.forEach.call(els, function(el){
+				    el.style.display = "none";
+				});
+				document.getElementById(id).style.borderRight = "10px solid rgba(28, 18, 222, 1)";
+				document.getElementById(id).style.backgroundColor = "rgba(216, 235, 240, 1)";
+				document.getElementById(id+"_info").style.display = "block";
+			}
+		</script>
+	</head>
+
+	<body lang="en-IN" onload="display_info('about')">
+
+		<div class="flex-container title_pane">
+			<a href="https://www.meity.gov.in/national-language-translation-mission"><img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI"></a>
+			<a href="https://sr-meity.github.io/Manuals/"><img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px"></a>
+		</div>
+
+		<div class="flex-container menu_pane">
+			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('about.html', '_self');">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('resources.html', '_self');">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink selected_menu">
+				I-MSV Challenge
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
+				Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
+				Hands-on
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+
+		<div class="flex_col dashboard">
+			<!--<div class="heading1">Indic-Multilingual Speaker Verification (I-MSV)</div>-->
+			<div class="content_space flex_row">				
+
+				<div class="flex_col sub_menu">
+					<div class="submenu_item hyperlink" id="about" onclick="display_info(this.id)">I-MSV Challenge 2022</div>
+					<div class="submenu_item hyperlink" id="rules" onclick="display_info(this.id)"> Rules</div>
+					<div class="submenu_item hyperlink" id="data" onclick="display_info(this.id)">Nature of Speech Data</div>
+					<div class="submenu_item hyperlink" id="submission" onclick="display_info(this.id)">Submission Guidelines</div>
+					<div class="submenu_item hyperlink" id="timeline" onclick="display_info(this.id)">Timeline</div>
+					<div class="submenu_item hyperlink" id="registration" onclick="display_info(this.id)">Registration</div>
+					<div class="submenu_item hyperlink" id="organizer" onclick="display_info(this.id)">Organizer</div>
+				</div>
+
+				<div class="information flex_col">
+					<div class="information_item align_center" id="about_info" style="display: block;">
+						<div class="heading2">Indic-Multilingual Speaker Verification (I-MSV)</div>
+						<div class="text">
+							Speaker verification (SV) is the task of verifying whether an input utterance matches the claimed identity.  Though there exists an ample amount of research in  SV technologies, the development concerning a multilingual conversation is limited.  In a country like India, almost all the speakers are multilingual and the speaking style changes from one geographical region to another.  Consequently,  the development of a multilingual SV (MSV) system on the data collected in the Indian scenario is more challenging.  With this motivation, the COCOSDA INDIC- Multilingual Speaker Verification (I-MSV) Challenge 2022 has been designed for understanding and comparing the state-of-the-art  SV techniques using speech data from 13 Indian languages collected using five different sensors. The goal of this challenge is to make the SV system robust to language and sensor variations between enrollment and testing. There will be two types of tasks namely constrained SV and unconstrained SV involved in I-MSV Challenge 2022.
+
+						</div>
+					</div>
+					<div class="information_item" id="rules_info">
+						<div class="text">
+							The I-MLSV challenge consists of two tracks namely, Track 1 (Constrained SV) and Track 2 (Unconstrained SV). The evaluation rule for both the tracks is as follows:
+
+							<ul>
+							<li>Submissions other than the defined tasks will not be included in this challenge.  </li>
+							 
+							<li><b>Constrained SV</b>:   Participants are not allowed to use speech data other than the speech data released as a part of the constrained SV challenge for the development of the SV system.</li>
+							 
+							<li><b>Unconstrained SV</b>: Participants are free to use any publicly available speech data in addition to the audio data released as a part of unconstrained SV.</li>
+							 
+							<li><b>Metric for evaluation</b>: Equal Error Rate (EER) will be used as the metric for performance evaluation for the defined test scenarios.</li>
+							 
+							<li>Participating  teams need to share their final SV systems, along with a write-up in o-cocosda format (<a href="https://vlsp.org.vn/cocosda2022/paper-submission" target="_blank">Click here</a>), which should give a brief description about
+
+							<ul>
+							<li>The database used with appropriate citations</li>
+							<li>Brief description of the methods used to build the system</li>
+							<li>Github link with proper code structure and details</li>
+							</ul>
+							</li>
+							</ul>
+						</div>
+					</div>
+					<div class="information_item" id="data_info">
+						<div class="text">
+							<ul>
+							<li><b>Developmental data</b>: Developmental data consists of speech data in Indian languages, collected in multiple sessions using five different sensors.</li>
+							 
+							<li><b>Enrolment data</b>: The Enrolment data consists of utterances from the English language captured in multiple sessions using only a headphone as the sensor.</li> 
+							 
+							<li><b>Public test data</b>: Public test data will be provided for two conditions namely, matched and mismatched test conditions.
+							<ul>
+							<li>Matched test condition: The language and sensor used for test data collection have remained the same as the enrolment data.</li>
+							 
+							<li>Mismatched test condition: The language and sensor used for test data collection differ from the enrolment data.</li>
+							</ul> 
+							</li>
+							<li><b>Private test data</b>: In private test data, the test utterances are collected using different languages and five sensors, including the sensor used for collecting the enrollment data. The duration of test data varies from 10 to 60 sec.</li>
+							</ul>
+						</div>
+					</div>
+					<div class="information_item" id="submission_info">
+						<div class="text">
+							<ul>
+							<li>Multiple submissions are allowed but under a limitation of each phase, the evaluation result is based on the submission having the lowest EER.</li>
+							<li>The submission file comprises a header; a single line must contain 3 fields separated by tab character in the following format:<br/><br/>
+							<b>test_wav [TAB] target_speaker_ID [TAB] similarity score [NEWLINE]</b><br/>
+							**where<br/>
+							test_wav - The test speech<br/>
+							score - The similarity score is in the range of 0 to 1.<br/>
+							<br/>
+							For example:<br/>
+							test_wav
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							target_speaker_ID
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							score<br/>
+							abc.wav
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							1001
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							0.97285<br/>
+							</li>
+							</ul>						
+						</div>
+					</div>
+					<div class="information_item" id="timeline_info">
+						<div class="text">
+							<table>
+							<tr>
+							<td>Challenge registration open </td><td> July 25th, 2022</td>
+							</tr>
+							<tr>
+							<td>Release of training and developmental data </td><td> September 7th, 2022</td>
+							</tr>
+							<tr>
+							<td>Release of public test data </td><td> September 15th, 2022</td>
+							</tr>
+							<tr>
+							<td>Release of private test data </td><td> October 10th, 2022</td>
+							</tr>
+							<tr>
+							<td>Submission of score opens </td><td> October 15th, 2022</td>
+							</tr>
+							<tr>
+							<td>Announcing the Top 3 to be presented at the conference </td><td> October 20th, 2022</td>
+							</tr>
+							<tr>
+							<td>Technical report submission </td><td> November 15th, 2022</td>
+							</tr>
+							<tr>
+							<td>Announcing the ranking winners </td><td> November 24-26th, 2022</td>
+							</tr>
+							</table>
+						</div>
+					</div>
+					<div class="information_item" id="registration_info">
+						<div class="text">
+							Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6j07q-yaj8-spovmJXkQug2eVIlhfG7W-c-Y4f83TxW3ecg/viewform" target="_blank">here</a> to register for the I-MSV challenge.
+						</div>
+					</div>
+					<div class="information_item" id="organizer_info">
+						<div class="text">
+							Team NLTM Speaker recognition, India<br/><br/><br/><br/>
+							Google doc: <a href="https://docs.google.com/document/d/1HWLw-77FtyDvZtOyU7r_3uWLRRvLRZIX/edit" target="_blank">Click here</a><br/>
+							Details about the team: <a href="https://sr-meity.github.io/Manuals/">Click here</a><br/>
+							Regarding any queries, kindly write to us at <a href=mailto:jagabandhu.mishra.18@iitdh.ac.in">jagabandhu.mishra.18@iitdh.ac.in</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="flex-container footer">
+			<div>© Copyright 2022. Designed and maintained by IIT Dharwad.</div>
+		</div>
+
+	</body>
+</html>

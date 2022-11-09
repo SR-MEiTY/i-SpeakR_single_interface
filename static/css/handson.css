@@ -1,0 +1,32 @@
+.tier2_menu_pane{
+	position: relative;
+	height: 60px;
+	width: 100%;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+}
+.tier2_menu_items{
+	position: relative;
+	height: 25px;
+	border: 3px solid transparent;
+	border-radius: 3px;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.tier2_menu_items:hover{
+	background-color: rgba(237, 239, 242, 1);
+	color: rgba(49, 65, 117, 1);
+}
+.tier2_selected_menu{
+	border: 3px solid transparent;
+	font-weight: 900;
+	border: 3px solid rgba(49, 65, 117, 1);
+	color: rgba(237, 239, 242, 1);
+	background-color: rgba(49, 65, 117, 1);
+}
