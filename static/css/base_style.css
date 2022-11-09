@@ -12,6 +12,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	font-family: "Fira Sans", sans-serif;
 	font-size: 16px;
 }
+img{
+	position: relative;
+    max-width: 100%;
+    min-width: 25px;
+    height: auto;
+}
 html, body {
 	width: 100%;
     margin: auto;
@@ -176,6 +182,13 @@ div {
 	color: white;
 	background-color: rgba(38, 81, 145,1);
 }
+.logo_pane{
+	position: relative;
+	width: 100%;
+	display: flex; 
+	align-items: center; 
+	justify-content: space-between;
+}
 .logo_shadow{
 	border-radius: 5px; 
 	border: 3px solid #EEE;
@@ -185,6 +198,10 @@ div {
 	/*filter: invert(100%);*/
 	box-shadow: 15px 15px 10px #BBF; 
 }
+.logo_size{
+	position: relative;
+	width: 12%;
+}
 .left_col{
 	position: relative;
 	width: 20%;
@@ -192,4 +209,34 @@ div {
 .right_col{
 	position: relative;
 	width: 80%;
+}
+.accessibility_pane{
+	position: relative;
+	width: 90%;
+	margin: auto;
+	height: auto;
+	background-color: rgba(240, 241, 242, 1);
+	border-bottom: 2px solid rgba(240, 241, 242, 1);
+	display: flex;
+	justify-content: flex-end;
+}
+.light_mode{
+	position: relative;
+	width: 2%; 
+	height: auto; 
+	color: white;
+	border-radius: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.dark_mode{
+	position: relative;
+	width: 2%; 
+	height: auto; 
+	color: black;
+	border-radius: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }

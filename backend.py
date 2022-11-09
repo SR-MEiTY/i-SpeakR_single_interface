@@ -241,10 +241,10 @@ if __name__ == '__main__':
     app.config['TRAIN_FOLDER'] = TRAIN_FOLDER
     app.config['TEST_FOLDER'] = TEST_FOLDER
     # Local
-    # context = ('certificate.pem', 'privateKey.pem')
-    # app.run(host="127.0.0.1", debug=True, port=8888)
+    context = ('certificate.pem', 'privateKey.pem')
+    app.run(host="127.0.0.1", debug=True, port=8888)
     
     # IIT-Dh server
-    context = ('flaskssl/8f0d9ad659139116.crt', 'flaskssl/star_iitdh_key.key')
-    app.run(host="0.0.0.0", debug=True, port=443, ssl_context=context)
+    # context = ('flaskssl/8f0d9ad659139116.crt', 'flaskssl/star_iitdh_key.key')
+    # app.run(host="0.0.0.0", debug=True, port=443, ssl_context=context)
     

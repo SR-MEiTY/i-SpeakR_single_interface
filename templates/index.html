@@ -22,10 +22,23 @@
 	</head>
 
 	<body lang="en-IN">
+		
+		<div class="accessibility_pane">
+			<div class="light_mode">&#11044;</div>
+			<div class="dark_mode">&#11044;</div>
+		</div>
 
 		<div class="flex-container title_pane">
-			<a href="https://www.meity.gov.in/national-language-translation-mission"><img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI"></a>
-			<a href="https://sr-meity.github.io/Manuals/"><img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px"></a>
+			<div style="position: relative; width: 45%;">
+				<a href="https://www.meity.gov.in/national-language-translation-mission">
+					<img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+				</a>
+			</div>
+			<div style="position: relative; width: 15%;">
+				<a href="https://sr-meity.github.io/Manuals/" style="width: 10%;">
+					<img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR">
+				</a>
+			</div>
 		</div>
 
 		<div class="flex-container menu_pane">
@@ -75,33 +88,33 @@
 				</div>
 
 				<div class="heading2">Consortium Members</div>					
-				<div class="subsection" style="display: flex; align-items: center; justify-content: space-between;">
-					<div onclick="window.open('https://www.cdac.in/index.aspx?id=kolkata', '_blank');" class="hyperlink">
-						<img src="{{url_for('static', filename='/images/CDAC.jpeg')}}" alt="C-DAC Centre @ Kolkata" title="C-DAC Centre @ Kolkata" height="100" class="logo_shadow">
+				<div class="subsection logo_pane">
+					<div onclick="window.open('https://www.cdac.in/index.aspx?id=kolkata', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/CDAC.jpeg')}}" alt="C-DAC Centre @ Kolkata" title="C-DAC Centre @ Kolkata" class="logo_shadow">
 					</div>
 					
-					<div onclick="window.open('https://iiitdwd.ac.in/', '_blank');" class="hyperlink">
-						<img src="{{url_for('static', filename='/images/IIIT_Dharwad.png')}}" alt="Indian Institute of Information Technology Dharwad, Karnataka" title="Indian Institute of Information Technology Dharwad, Karnataka" height="100" class="logo_shadow">
+					<div onclick="window.open('https://iiitdwd.ac.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/IIIT_Dharwad.png')}}" alt="Indian Institute of Information Technology Dharwad, Karnataka" title="Indian Institute of Information Technology Dharwad, Karnataka" class="logo_shadow">
 					</div>
 
-					<div onclick="window.open('https://www.iitdh.ac.in/', '_blank');" class="hyperlink">
-						<img src="{{url_for('static', filename='/images/IIT_Dharwad.png')}}" alt="Indian Institute of Technology Dharwad, Karnataka" title="Indian Institute of Technology Dharwad, Karnataka" height="100" class="logo_shadow">
+					<div onclick="window.open('https://www.iitdh.ac.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/IIT_Dharwad.png')}}" alt="Indian Institute of Technology Dharwad, Karnataka" title="Indian Institute of Technology Dharwad, Karnataka" class="logo_shadow">
 					</div>
 
-					<div onclick="window.open('https://www.kletech.ac.in/', '_blank');" class="hyperlink">
-						<img src="{{url_for('static', filename='/images/KLE_Tech.png')}}" alt="KLE Technological University, Hubli, Karnataka" title="KLE Technological University, Hubli, Karnataka" height="100" class="logo_shadow">
+					<div onclick="window.open('https://www.kletech.ac.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/KLE_Tech.png')}}" alt="KLE Technological University, Hubli, Karnataka" title="KLE Technological University, Hubli, Karnataka" class="logo_shadow">
 					</div>
 
-					<div onclick="window.open('https://www.kluniversity.in/', '_blank');" class="hyperlink">
-						<img src="{{url_for('static', filename='/images/KL_Univ.png')}}" alt="KL University Vijayawada, Andhra Pradesh" title="KL University Vijayawada, Andhra Pradesh" height="65" class="logo_shadow">
+					<div onclick="window.open('https://www.kluniversity.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/KL_Univ.png')}}" alt="KL University Vijayawada, Andhra Pradesh" title="KL University Vijayawada, Andhra Pradesh" class="logo_shadow">
 					</div>
 
-					<div onclick="window.open('https://www.nitnagaland.ac.in/', '_blank');" class="hyperlink">
-						<img src="{{url_for('static', filename='/images/NIT_Nagaland.png')}}" alt="National Institute of Technology Nagaland" title="National Institute of Technology Nagaland" height="100" class="logo_shadow"/>
+					<div onclick="window.open('https://www.nitnagaland.ac.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/NIT_Nagaland.png')}}" alt="National Institute of Technology Nagaland" title="National Institute of Technology Nagaland" class="logo_shadow"/>
 					</div>
 
-					<div onclick="window.open('http://www.nitp.ac.in/php/home.php', '_blank');" class="hyperlink">
-						<img src="{{url_for('static', filename='/images/NIT_Patna.png')}}" alt="National Institute of Technology Patna" title="National Institute of Technology Patna" height="100" class="logo_shadow">
+					<div onclick="window.open('http://www.nitp.ac.in/php/home.php', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/NIT_Patna.png')}}" alt="National Institute of Technology Patna" title="National Institute of Technology Patna" class="logo_shadow">
 					</div>
 				</div>
 
