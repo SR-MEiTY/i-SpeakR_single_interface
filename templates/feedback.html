@@ -20,24 +20,55 @@
 		<link href="{{url_for('static', filename='/css/handson.css')}}" type="text/css" rel="stylesheet">
 		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
 		<title>i-SpeakR - Feedback</title>
+    	<script type="text/javascript" src="static/js/core.js"></script>
 	</head>
 
-	<body lang="en-IN">
-
-		<div class="flex-container title_pane">
-			<div style="position: relative; width: 45%;">
-				<a href="https://www.meity.gov.in/national-language-translation-mission">
-					<img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
-				</a>
-			</div>
-			<div style="position: relative; width: 15%;">
-				<a href="https://sr-meity.github.io/Manuals/" style="width: 10%;">
-					<img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR">
-				</a>
+	<body lang="en-IN" id="body_tag">
+		
+		<div class="accessibility_pane">
+			<div class="light_mode hyperlink" id="light_mode" onclick="change_page_theme('light')" style="display: none;" title="Change to light mode"></div>
+			<div class="dark_mode hyperlink" id="dark_mode" onclick="change_page_theme('dark')" title="Change to dark mode"></div>
+		</div>
+		
+		<div id="light_title_pane">
+			<div class="flex-container title_pane" id="light_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
 			</div>
 		</div>
 
-		<div class="flex-container menu_pane">
+
+		<div id="dark_title_pane" style="display: none;">
+			<div class="flex-container title_pane" id="dark_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1_invert.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2_invert2.png')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile_view">
+			<div class="open_menu" id="open_menu" onclick="toggle_menu()">
+				&#8803;
+				<input type="hidden" value="closed" id="menu_status"/>
+			</div>
+		</div>
+
+		<div class="flex-container menu_pane" id="menu_pane">
 			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
 				Home
 			</div>

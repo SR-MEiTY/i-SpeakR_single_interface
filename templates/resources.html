@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-<!--
-		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
--->
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
-
 		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +11,6 @@
 		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
-
 		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
 		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
 		<title>i-SpeakR - Resources</title>
@@ -28,24 +23,55 @@
 				document.getElementById('github_logo').setAttribute('src', '{{url_for("static", filename="/images/github_logo.png")}}');
 			}
 		</script>
+    	<script type="text/javascript" src="static/js/core.js"></script>
 	</head>
 
-	<body lang="en-IN">
-
-		<div class="flex-container title_pane">
-			<div style="position: relative; width: 45%;">
-				<a href="https://www.meity.gov.in/national-language-translation-mission">
-					<img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
-				</a>
-			</div>
-			<div style="position: relative; width: 15%;">
-				<a href="https://sr-meity.github.io/Manuals/" style="width: 10%;">
-					<img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR">
-				</a>
+	<body lang="en-IN" id="body_tag">
+		
+		<div class="accessibility_pane">
+			<div class="light_mode hyperlink" id="light_mode" onclick="change_page_theme('light')" style="display: none;" title="Change to light mode"></div>
+			<div class="dark_mode hyperlink" id="dark_mode" onclick="change_page_theme('dark')" title="Change to dark mode"></div>
+		</div>
+		
+		<div id="light_title_pane">
+			<div class="flex-container title_pane" id="light_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
 			</div>
 		</div>
 
-		<div class="flex-container menu_pane">
+
+		<div id="dark_title_pane" style="display: none;">
+			<div class="flex-container title_pane" id="dark_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1_invert.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2_invert2.png')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile_view">
+			<div class="open_menu" id="open_menu" onclick="toggle_menu()">
+				&#8803;
+				<input type="hidden" value="closed" id="menu_status"/>
+			</div>
+		</div>
+
+		<div class="flex-container menu_pane" id="menu_pane">
 			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
 				Home
 			</div>
@@ -74,38 +100,37 @@
 		</div>
 
 		<div class="flex-container dashboard">
-			<div class="content_space">				
-				<!--<div class="heading1">Resources</div>-->
+			<div class="content_space">
 				<div class="heading2">Important links</div>
 				<div class="subsection flex_container">
 
-<!--
-					<div class="display_tablet hyperlink" onclick="window.open('demo.html', '_blank');">
-						INDIC Speaker Recognition DEMO
-					</div>
--->
 					<div class="display_tablet hyperlink" onclick="window.open('SRS.html', '_blank');">
 						Software Requirement Specifications
 					</div>
+
 					<div class="display_tablet hyperlink" onclick="window.open('https://github.com/SR-MEiTY/i-SpeakR', '_blank');" onmouseover="hover();" onmouseout="unhover();">
-						<img id="github_logo" src="{{url_for('static', filename='/images/github_logo.png')}}"  alt="Github Repo" title="Github Repo" height="75px">
+						<img id="github_logo" src="{{url_for('static', filename='/images/github_logo.png')}}"  alt="Github Repo" title="Github Repo" style="position: relative; max-width: 30%;">
 						Github Repository
 					</div>
+
 					<div class="display_tablet hyperlink" onclick="window.open('data_key', '_blank');">
 						I-MSV dataset key files
 					</div>
+
 				</div>
 
 
 				<div class="heading2">Tutorials</div>
-				<div class="subsection">
+				<div class="subsection flex_container">
 
 					<div class="display_tablet hyperlink" onclick="window.open('https://keras.io/examples/audio/speaker_recognition_using_cnn/', '_blank');">
 						Keras Speaker Recognition
 					</div>
+
 					<div class="display_tablet hyperlink" onclick="window.open('https://dspace.mit.edu/handle/1721.1/70480', '_blank');">
 						A Tutorial on Text-Independent Speaker Verification, MIT
 					</div>
+
 					<div class="display_tablet hyperlink" onclick="window.open('https://www.sciencedirect.com/science/article/pii/S0167639317302637', '_blank');">
 						Speaker Recognition from Whispered Speech
 					</div>
@@ -114,24 +139,27 @@
 
 
 				<div class="heading2" onclick="window.open('Available_Toolkits.html', '_blank');" style="cursor: pointer;">Other available toolkits &#8618;</div>
-				<div class="subsection">
+				<div class="subsection flex_container">
 
 					<div class="display_tablet hyperlink" onclick="window.open('https://speechbrain.github.io/', '_blank');">
 						Speech Brain: A PyTorch Powered Speech Toolkit
 					</div>
+
 					<div class="display_tablet hyperlink" onclick="window.open('https://www.idiap.ch/software/bob/docs/bob/bob.bio.spear/stable/index.html', '_blank');">
 						SPEAR: A Speaker Recognition Toolkit based on Bob
 					</div>
+
 					<div class="display_tablet hyperlink" onclick="window.open('https://alize.univ-avignon.fr/', '_blank');">
 						ALIZÉ: Opensource Speaker Recognition
 					</div>
+
 					<div class="display_tablet hyperlink" onclick="window.open('https://projets-lium.univ-lemans.fr/sidekit/', '_blank');">
 						SIDEKIT: Open source package for Speaker and Language recognition
 					</div>
 
-
 				</div>
 			</div>
+
 		</div>
 
 		<div class="flex-container footer">
