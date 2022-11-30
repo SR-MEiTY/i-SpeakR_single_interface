@@ -30,43 +30,43 @@ FILEPATH = 'static/data/key_files_edited.zip'
 app = Flask(__name__)
 
 #Default route to load home page of the web app
-@ app.route('/', methods = ['POST', 'GET'])
+@app.route('/', methods = ['POST', 'GET'])
 def root():
 	return render_template('index.html');
 
-@ app.route('/index.html', methods = ['POST', 'GET'])
+@app.route('/index.html', methods = ['POST', 'GET'])
 def index():
 	return render_template('index.html');
 
-@ app.route('/about.html', methods = ['POST', 'GET'])
+@app.route('/about.html', methods = ['POST', 'GET'])
 def about():
 	return render_template('about.html');
 
-@ app.route('/Available_Toolkits.html', methods = ['POST', 'GET'])
+@app.route('/Available_Toolkits.html', methods = ['POST', 'GET'])
 def Available_Toolkits():
 	return render_template('Available_Toolkits.html');
 
-@ app.route('/feedback.html', methods = ['POST', 'GET'])
+@app.route('/feedback.html', methods = ['POST', 'GET'])
 def feedback():
 	return render_template('feedback.html');
 
-@ app.route('/hands_on.html', methods = ['POST', 'GET'])
+@app.route('/hands_on.html', methods = ['POST', 'GET'])
 def hands_on():
 	return render_template('hands_on.html');
 
-@ app.route('/I-MSV.html', methods = ['POST', 'GET'])
+@app.route('/I-MSV.html', methods = ['POST', 'GET'])
 def I_MSV():
 	return render_template('I-MSV.html');
 
-@ app.route('/references.html', methods = ['POST', 'GET'])
+@app.route('/references.html', methods = ['POST', 'GET'])
 def references():
 	return render_template('references.html');
 
-@ app.route('/resources.html', methods = ['POST', 'GET'])
+@app.route('/resources.html', methods = ['POST', 'GET'])
 def resources():
 	return render_template('resources.html');
 
-@ app.route('/data_key', methods = ['POST', 'GET'])
+@app.route('/data_key', methods = ['POST', 'GET'])
 def data_key_download():
 # 	return render_template('resources.html');
     fileobj = io.BytesIO()
@@ -83,25 +83,25 @@ def data_key_download():
     response.headers.set('Content-Disposition', 'attachment', filename='%s.zip' % os.path.basename(FILEPATH))
     return response
 
-@ app.route('/self_evaluation.html', methods = ['POST', 'GET'])
+@app.route('/self_evaluation.html', methods = ['POST', 'GET'])
 def self_evaluation():
 	return render_template('self_evaluation.html');
 
-@ app.route('/SRS.html', methods = ['POST', 'GET'])
+@app.route('/SRS.html', methods = ['POST', 'GET'])
 def SRS():
 	return render_template('SRS.html');
 
-@ app.route('/demo.html', methods = ['POST', 'GET'])
+@app.route('/demo.html', methods = ['POST', 'GET'])
 def demo():
 	return render_template('demo.html');
 
 #This route load the registration page for the user
-@ app.route('/registration.html', methods = ['POST', 'GET'])
+@app.route('/registration.html', methods = ['POST', 'GET'])
 def registration():
 	return render_template('registration.html');
 
 #This route loads the verification page for the user
-@ app.route('/verification.html', methods = ['POST', 'GET'])
+@app.route('/verification.html', methods = ['POST', 'GET'])
 def testing():
 	return render_template('verification.html');
 
@@ -111,7 +111,7 @@ def testing():
 #Creates the training and testing directories for the speaker with created speaker IS
 #Stores the audio file from the client broswer in current speaker's training directory
 #Extracts the audio features and generates the .gmm file for further usage
-@ app.route('/uploadTAudio', methods = ['POST'])
+@app.route('/uploadTAudio', methods = ['POST'])
 def uploadTAudio():
 	if request.method == 'POST':
 		file = request.files['audioChunk'];
@@ -171,7 +171,7 @@ def uploadTAudio():
 #Extracts the features from the audio
 #Loads the .gmm file from the current user's training directory and calculates the score
 #based on the score it returns whether speaker is recognized or not.
-@ app.route('/uploadVAudio', methods = ['POST'])
+@app.route('/uploadVAudio', methods = ['POST'])
 def uploadVAudio():
 	if request.method == 'POST':
 		file = request.files['audioChunk'];
