@@ -42,6 +42,10 @@
 			}
 
 			function show_recording_menu(){
+				if (document.getElementById('speakerID').value==''){
+					window.alert('Enter speaker ID');
+					return;
+				}
 				document.getElementById('recording_menu').style.visibility='visible';
 			}
 

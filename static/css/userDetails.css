@@ -37,7 +37,7 @@ For laptop screens
 		width: 90%;
 		padding: 1% 1% 10% 1%;
 		border-radius: 10px;	
-		visibility: visible;
+		visibility: hidden;
 		box-shadow: 0 0 5px 0 ;
 		background: inherit;
 		backdrop-filter: blur(10px);
@@ -325,7 +325,7 @@ For mobile screens
 		width: 90%;
 		padding: 1% 1% 1% 1%;
 		border-radius: 10px;	
-		visibility: visible;
+		visibility: hidden;
 		box-shadow: 0 0 5px 0 ;
 		background: inherit;
 		backdrop-filter: blur(10px);
@@ -546,7 +546,6 @@ For mobile screens
 		display: flex;
 		flex-direction: column !important;
 		justify-content: space-between;
-		/*visibility: hidden;*/
 		background-color: rgba(112, 181, 150, 0.1);
 		opacity: 1;
 		border-radius: 5px;
