@@ -137,7 +137,7 @@ def uploadTAudio():
 			print('Directory already exists for the speaker!')
 			print('Skipping the directory creation for Training Data...')
 			print('Skipping the directory creation for Testing Data...')
-		csvfile = open('static/speakerinfo.csv', 'a', newline='');
+		csvfile = open('static/speaker_info.csv', 'a', newline='');
 		writer = csv.writer(csvfile);
 		writer.writerow(row);
 		csvfile.close();
@@ -146,22 +146,24 @@ def uploadTAudio():
 		file.save(full_file_name)
 
 		path2str  = "static/train_data/"  
-		id=speakerID
+		sid=speakerID
 		sr=8000
 
-		wavfilepath=path2str+id+ '/'+id+'.wav'
-		y,sr=lb.load(wavfilepath,sr=sr)
-		features  = extract_features(y,sr)
+		wavfilepath=path2str + sid + '/' + sid + '.wav'
+		y, sr = lb.load(wavfilepath, sr=sr)
+		features = extract_features(y,sr)
 		gmm = GMM(n_components = 16, max_iter=50, n_init = 3)
 		gmm.fit(features)
-		model_save = path2str+id+'/'+id+".gmm"
+		model_save = path2str + sid + '/' + sid + ".gmm"
 		pickle.dump(gmm,open(model_save,'wb'))
 		if isTraindir and isTestdir:
-			return_string = id + ' already exists. Overwriting the existing file, if any...'
-			return return_string
+			return_string = sid + ' already exists. Overwriting the existing file, if any...'
 		else:
-			return_string = 'Please note down your Speaker ID: '+id
-			return return_string
+			return_string = 'Please note down your Speaker ID: ' + sid
+
+		return return_string
+
+
 
 #This route performs the following functionalities:
 #Fetches the speaker ID from the web browser and checks whether it is in the testing direcory or not
@@ -175,7 +177,7 @@ def uploadVAudio():
 		file = request.files['audioChunk'];
 		sid = request.form['sid'].upper();
 
-		csv_file = open('static/speakerinfo.csv', "r");
+		csv_file = open('static/speaker_info.csv', "r");
 		reader = csv.reader(csv_file)
 		isFound = False
 		for row in reader:
@@ -191,23 +193,28 @@ def uploadVAudio():
 			file.save(full_file_name)
 
 			path2str  = "static/test_data/"  
-			id=sid
+			#id=sid
 			sr=8000
 			#%%
-			wavfilepath=path2str+id+ '/'+id+'.wav'
-			y,sr=lb.load(wavfilepath,sr=sr)
-			features  = extract_features(y,sr)
+			wavfilepath=path2str + sid + '/' + sid + '.wav'
+			y,sr = lb.load(wavfilepath, sr=sr)
+			features = extract_features(y,sr)
+			#print(f'features={np.shape(features)}')
 
-			model_load='static/train_data/'+id;
+			speaker_model_path = 'static/train_data/' + sid + '/' + sid + '.gmm'
+			speaker_model = pickle.load(open(speaker_model_path,'rb'))
+			speaker_score = speaker_model.score(features)
 
-			model_load_path=model_load+'/'+id+'.gmm'
-			model=pickle.load(open(model_load_path,'rb'))
+			ubm_model_path = 'static/train_data/ubm.pkl'
+			ubm_model = pickle.load(open(ubm_model_path,'rb'))['model']
+			ubm_score = ubm_model.score(features)
 
-			score=model.score(features)
+			score = speaker_score-ubm_score
 
 			th=-100
-			op=verify(score,th)
-			print(op)
+			#print(f'Speaker score={score} {speaker_score} {ubm_score} threshold={th}')
+			op = verify(score,th)
+			#print(f'verification status={op} (1=Recognized; 0=Not Recognized)')
 			if op == 1:
 				#output = "Speaker Recognized"
 				return "1";

@@ -120,83 +120,49 @@
 			</div>
 		</div>
 
-		<div class="flex-container dashboard flex_col">
-			<div class="content_space flex_row">
-				<div class="heading1 flex-row">DEMO</div>
+		<div class="flex-container dashboard">
+			<div class="demo_page_heading">
+				<div class="heading1">DEMO</div>
 				<img src="{{url_for('static', filename='/images/home_icon.png')}}" onclick="window.open('demo.html', '_self');" width="30px" class="hyperlink" title="Goto DEMO homepage"/>
 			</div>
 
-			<div class="content_space flex_row">
-				<div class="subsection table_div flex_col">
-					<div class="heading2">Enroll yourself here</div>					
-					<form class="userInfo" id="userInfo" action="/store" method="post">
-						<!--First Name of the Speaker-->
-						<div class="trow">
-							<label for="fname">First Name: </label>
-							<input type="text" name="fname" id="fname" required value="ABC">
-						</div>
 
-						<!--Last Name of the Speaker-->
-						<div class="trow">
-							<label for="lname">Last Name: </label>
-							<input type="text" name="lname" id="lname" required value="XYZ">
-						</div>
-
-						<!--Gender of the Speaker-->
-						<div class="trow">
-							<label for="gender">Gender: </label>
-							<select name="gender" id="gender" required>
-								<option disabled selected value> -- Select Gender -- </option>
-								<option value="M" selected>Male</option>
-								<option value="F">Female</option>
-								<option value="O">Other</option>
-							</select>
-						</div>
-
-						<!--Age of the Speaker-->
-						<div class="trow">
-							<label for="age">Age:</label>
-							<input type="number" name="age" id="age" required min="8" max="100" value="33">
-						</div>
-							
-						<!--Speaker ID of the Speaker-->
-						<!-- <div class="trow">
-							<label for="username">Speaker ID: </label>
-							<input type="text" name="speakerid" id="speakerid" required>
-						</div> -->
-					</form>
-
-					<div class="start_recording_switch hyperlink" onclick="show_recording_menu();">
-						Click here to start recording
-					</div>
-
-				</div>
-
-				<div class="flex_col table_div recording_menu" id="recording_menu">
-					<div class="close_menu hyperlink" onclick="hide_recording_menu();">&#10060;</div>
-					<div class="heading2">Record audio</div>
-					<form class="audioForm" name="audioForm" id="audioForm">
-					<div class="trow">
-						<div>
-						<input type="button" class="button record_button" name="recordButton" id="recordButton" value="START" onclick="start_recording();">
-						</div>
-						<div>
-						<input type="button" class="button stop_button" name="stopRecording" id="stopRecording" value="STOP" onclick="stop_recording()">
-						</div>
-					</div>
-					</form>				
-					
-					<p class="timer" id="timer" name="timer">Not Recording.</p>
-	
-					<div class="heading2">Text prompt</div>
-					<div class="text">
-						India, officially the Republic of India is a country in South Asia. It is the seventh-largest country by area, the second-most populous country, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west; China, Nepal, and Bhutan to the north; and Bangladesh and Myanmar to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives; its Andaman and Nicobar Islands share a maritime border with Thailand, Myanmar and Indonesia. India has been a federal republic since 1950, governed in a democratic parliamentary system. India's population grew from 361 million in 1951 to 1.211 billion in 2011. During the same time, its nominal per capita income increased from US$64 annually to US$1,498, and its literacy rate from 16.6% to 74%. India is a megadiverse country, a term employed for 17 countries which display high biological diversity and contain many species exclusively indigenous, or endemic, to them. India is a habitat for 8.6% of all mammal species, 13.7% of bird species, 7.9% of reptile species, 6% of amphibian species, 12.2% of fish species, and 6.0% of all flowering plant species. Fully a third of Indian plant species are endemic. India also contains four of the world's 34 biodiversity hotspots, or regions that display significant habitat loss in the presence of high endemism. India is a federation with a parliamentary system governed under the Constitution of India—the country's supreme legal document. India is a federal union comprising 28 states and 8 union territories.
-					</div>
-				</div>
+			<div class="details_tile">
+				<div class="heading2">Enroll yourself here</div>					
+				<form class="userInfo" id="userInfo" action="/store" method="post" class="enroll_form">
+					<input type="text" name="fname" id="fname" placeholder="First Name" size="20" required /> &nbsp;
+					<input type="text" name="lname" id="lname" placeholder="Last Name" size="20" required /> &nbsp;
+					<select name="gender" id="gender" placeholder="Gender" required>
+						<option disabled value> Select Gender </option>
+						<option value="M" selected>Male</option>
+						<option value="F">Female</option>
+						<option value="O">Others</option>
+					</select> &nbsp;
+					<input type="number" name="age" id="age" min="8" max="100" placeholder="Age" required />
+				</form>
+				<div class="start_recording_switch hyperlink" onclick="show_recording_menu();">Start recording</div>
 			</div>
 
-		</div>
 
+			<div class="recording_menu" id="recording_menu">
+				<form class="audioForm" name="audioForm" id="audioForm">
+					<div class="recording_buttons">
+						<div class="heading2">Record audio</div>
+						<input type="button" class="button record_button" name="recordButton" id="recordButton" value="START" onclick="start_recording();">
+						<input type="button" class="button stop_button" name="stopRecording" id="stopRecording" value="STOP" onclick="stop_recording()">
+						<div class="close_menu hyperlink" onclick="hide_recording_menu();">&#10060;</div>
+					</div>
+				</form>
+				<p class="timer" id="timer" name="timer">Not Recording.</p>
+
+				<br/>
+	
+				<div class="prompt"><b>Example text prompt:</b> &nbsp; India, officially the Republic of India is a country in South Asia. It is the seventh-largest country by area, the second-most populous country, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west; China, Nepal, and Bhutan to the north; and Bangladesh and Myanmar to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives; its Andaman and Nicobar Islands share a maritime border with Thailand, Myanmar and Indonesia. India has been a federal republic since 1950, governed in a democratic parliamentary system. India's population grew from 361 million in 1951 to 1.211 billion in 2011. During the same time, its nominal per capita income increased from US$64 annually to US$1,498, and its literacy rate from 16.6% to 74%. India is a megadiverse country, a term employed for 17 countries which display high biological diversity and contain many species exclusively indigenous, or endemic, to them. India is a habitat for 8.6% of all mammal species, 13.7% of bird species, 7.9% of reptile species, 6% of amphibian species, 12.2% of fish species, and 6.0% of all flowering plant species. Fully a third of Indian plant species are endemic. India also contains four of the world's 34 biodiversity hotspots, or regions that display significant habitat loss in the presence of high endemism. India is a federation with a parliamentary system governed under the Constitution of India—the country's supreme legal document. India is a federal union comprising 28 states and 8 union territories.</div>
+
+			</div>
+
+			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		</div>
 
 		<div class="flex-container footer">
 			<div>© Copyright 2022. Designed and maintained by IIT Dharwad & IIIT Dharwad.</div>

@@ -123,60 +123,43 @@
 
 		<div class="flex-container dashboard">
 
-			<div class="flex_row" style="position: relative; width: 100%;">
-				<div class="heading1 flex-row">DEMO</div>
+			<div class="demo_page_heading">
+				<div class="heading1">DEMO</div>
 				<div class="heading2">i-SpeakR - Testing Module</div>
 				<img src="{{url_for('static', filename='/images/home_icon.png')}}" onclick="window.open('demo.html', '_self');" width="30px" class="hyperlink" title="Goto DEMO homepage"/>
 			</div>
 
+
 			<form class="audioForm" name="audioForm" id="audioForm">
-			<div class="content_space">
-				<div class="subsection flex_row">
-					<div class="speaker_id_input flex_col">
-						<div><label for="speakerID">Enter the Speaker ID:</label></div>
-						<div><input type="text" name="speakerID" class="speakerID" id="speakerID" required value="AXM33"/></div>
-						<!--<div class="hyperlink" onclick="show_msg();">Forgot speaker ID</div>-->
-					</div>
-
-					<div class="forgot_speaker_id" id="forgot_speaker_id">
-						<!--<div class="close_menu hyperlink" onclick="hide_msg();">&#10060;</div>-->
-						<div class=""><div class="heading2">Format of speaker ID</div>A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name, first letter of your Gender and age. <b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b></div>
-					</div>
-
+			<div class="details_tile">
+				<input type="text" name="speakerID" class="speakerID" id="speakerID" placeholder="Speaker ID" required/></div>
+				<div class="forgot_speaker_id" id="forgot_speaker_id">
+					<p class="heading2">Format of speaker ID</p>A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name, first letter of your Gender and age. <b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b>
 				</div>
 
-				<div class="subsection">
-					<div class="start_recording_switch hyperlink" onclick="show_recording_menu();">
-						Click here to start recording
-					</div>
+				<div class="start_recording_switch hyperlink" onclick="show_recording_menu();">
+					Start recording
 				</div>
-
-				<div class="flex_col table_div recording_menu" id="recording_menu">
-					<div class="close_menu hyperlink" onclick="hide_recording_menu();">&#10060;</div>
-					<div class="heading2">Read the following Text</div>
-					<form class="audioForm" name="audioForm" id="audioForm">
-					<div class="trow">
-						<div>
-						<input type="button" class="button record_button" name="recordButton" id="recordButton" value="START" onclick="start_recording();">
-						</div>
-						<div>
-						<input type="button" class="button stop_button" name="stopRecording" id="stopRecording" value="STOP" onclick="stop_recording()">
-						</div>
-					</div>
-					</form>				
-					
-					<p class="timer" id="timer" name="timer">Not Recording.</p>
-	
-					<div class="heading2">Text prompt</div>
-					<div class="text">
-						Indians are the citizens and nationals of the Republic of India. According to the 2011 Indian national census, the population of India stood at over 1.2 billion people, making it the world's second-most populous country that contains 17.50 percent of the global population. In India, the term "Indian" refers to nationality, rather than a particular ethnicity or language.
-					</div>
-					<p class="output" id="output" name="output">Result: </p>
-				</div>
-
-				</form>
-
 			</div>
+
+			<div class="recording_menu" id="recording_menu">
+				<form class="audioForm" name="audioForm" id="audioForm">
+					<div class="recording_buttons">
+						<div class="close_menu hyperlink" onclick="hide_recording_menu();">&#10060;</div>
+						<div class="heading2">Record audio</div>
+						<input type="button" class="button record_button" name="recordButton" id="recordButton" value="START" onclick="start_recording();">
+						<input type="button" class="button stop_button" name="stopRecording" id="stopRecording" value="STOP" onclick="stop_recording()">
+					</div>
+				</form>
+				<p class="timer" id="timer" name="timer">Not Recording.</p>
+
+				<br/>
+		
+				<div class="prompt"><b>Example text prompt:</b> &nbsp; Indians are the citizens and nationals of the Republic of India. According to the 2011 Indian national census, the population of India stood at over 1.2 billion people, making it the world's second-most populous country that contains 17.50 percent of the global population. In India, the term "Indian" refers to nationality, rather than a particular ethnicity or language.</div>
+
+				<p class="output" id="output" name="output">Result: </p>
+			</div>
+			</form>
 			
 			<br/><br/><br/><br/><br/><br/><br/><br/>
 

@@ -15,23 +15,21 @@ let timerElement, ticker;
   its color will be set to gray
 */
 window.addEventListener('load', (event) => {
-		getDevices();
-		stopRecording.disabled = true;
-		stopRecording.style.backgroundColor = "grey";
-		stopRecording.style.border = 'grey';
-	});
+	getDevices();
+	stopRecording.disabled = true;
+	stopRecording.style.backgroundColor = "gray";
+	stopRecording.style.border = 'gray';
+});
 
 
 /*Function to get a list of all IO devices connected to this device*/
 function getDevices()
 {
-	if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices)
-	{
+	if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices){
 	  console.log("enumerateDevices() not supported.");
 	  return;
 	}
-	else
-	{
+	else{
 		navigator.mediaDevices.getUserMedia({
     		audio: true
 		}).then(()=>{
@@ -65,31 +63,28 @@ window.onload = function() {
  */
 function tstart()
 {
-	if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices)
-	{
+	if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices){
 	  console.log("enumerateDevices() not supported.");
 	  return;
 	}
-	else
-	{
+	else{
 		navigator.mediaDevices.getUserMedia({
 			audio: true
 		}).then(async function(mediaStreamObj)
 		{
 			mediaRecorder= new MediaRecorder(mediaStreamObj);
-			if(mediaRecorder.state == 'inactive')
-			{
-    		mediaRecorder.start();
-       	console.log('Recording State Now: '+ mediaRecorder.state)
-       	recordButton.disabled = true;
-       	recordButton.style.backgroundColor = "grey";
-				recordButton.style.border = 'grey';
+			if(mediaRecorder.state == 'inactive'){
+	    		mediaRecorder.start();
+    		   	console.log('Recording State Now: '+ mediaRecorder.state)
+    		   	recordButton.disabled = true;
+    		   	recordButton.style.backgroundColor = "gray";
+				recordButton.style.border = 'gray';
 
-       	stopRecording.disabled = false;
-       	stopRecording.style.backgroundColor = "black";
+    		   	stopRecording.disabled = false;
+    		   	stopRecording.style.backgroundColor = "black";
 				stopRecording.style.border = 'black';
        	
-       	mediaRecorder.ondataavailable = function(ev)
+    		   	mediaRecorder.ondataavailable = function(ev)
   			{
           chunks.push(ev.data);
           console.log('Displaying Chunks: ')
@@ -145,21 +140,22 @@ function tstart()
 /*Function to stop the audio recording*/
 function tstop()
 {
-		recordButton.disabled = false;
-		recordButton.style.backgroundColor = "black";
-		recordButton.style.border = 'black';
+	recordButton.disabled = false;
+	recordButton.style.backgroundColor = "black";
+	recordButton.style.border = 'black';
 
     stopRecording.disabled = true;
-		stopRecording.style.backgroundColor = "grey";
-		stopRecording.style.border = 'grey';
+	stopRecording.style.backgroundColor = "gray";
+	stopRecording.style.border = 'gray';
 
-		clearInterval(ticker);
-		timerElement.innerHTML = "Enrollment under progress, wait..."
+	clearInterval(ticker);
+	timerElement.innerHTML = "Enrollment under progress, wait..."
 
-		if(mediaRecorder.state != 'inactive'){
-			mediaRecorder.stop();
-		}
-    console.log('Recording State Now: '+ mediaRecorder.state)
+	if(mediaRecorder.state != 'inactive'){
+		mediaRecorder.stop();
+	}
+    console.log('Recording State Now: '+ mediaRecorder.state);
+	/*location.replace("/demo.html")*/
 }
 
 
@@ -186,8 +182,8 @@ function vstart()
     		mediaRecorder.start();
 	       	console.log('Recording State Now: '+ mediaRecorder.state)
 	       	recordButton.disabled = true;
-	       	recordButton.style.backgroundColor = "grey";
-					recordButton.style.border = 'grey';
+	       	recordButton.style.backgroundColor = "gray";
+					recordButton.style.border = 'gray';
 
 	       	stopRecording.disabled = false;
 	       	stopRecording.style.backgroundColor = "black";
@@ -240,7 +236,7 @@ function vstart()
 							output.style.fontWeight = 'bold'
 						}
 						else {
-							output.innerHTML = 'Unable to process the request. Please reolad the page and try again.'
+							output.innerHTML = 'Unable to process the request. Please reload the page and try again.'
 							output.style.color = 'red'
 							output.style.font = '15px Arial, sans-serif'
 							output.style.fontWeight = 'bold'
@@ -272,8 +268,8 @@ function vstop()
 	recordButton.style.border = 'black';
 
   stopRecording.disabled = true;
-	stopRecording.style.backgroundColor = "grey";
-	stopRecording.style.border = 'grey';
+	stopRecording.style.backgroundColor = "gray";
+	stopRecording.style.border = 'gray';
 
 	clearInterval(ticker);
 	timerElement.innerHTML = "Recording is stopped. Not Recording..."
