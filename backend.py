@@ -24,6 +24,7 @@ warnings.filterwarnings('ignore')
 #Directories to store audio data of speaker for training and testing 
 TRAIN_FOLDER = 'static/train_data/'
 TEST_FOLDER = 'static/test_data/'
+OPDIR = 'static/data/'
 FILEPATH = 'static/data/key_files_edited.zip'
 
 #Flask Server Instance
@@ -32,43 +33,43 @@ app = Flask(__name__)
 #Default route to load home page of the web app
 @app.route('/', methods = ['POST', 'GET'])
 def root():
-	return render_template('index.html');
+	return render_template('index.html')
 
 @app.route('/index.html', methods = ['POST', 'GET'])
 def index():
-	return render_template('index.html');
+	return render_template('index.html')
 
 @app.route('/about.html', methods = ['POST', 'GET'])
 def about():
-	return render_template('about.html');
+	return render_template('about.html')
 
 @app.route('/Available_Toolkits.html', methods = ['POST', 'GET'])
 def Available_Toolkits():
-	return render_template('Available_Toolkits.html');
+	return render_template('Available_Toolkits.html')
 
 @app.route('/feedback.html', methods = ['POST', 'GET'])
 def feedback():
-	return render_template('feedback.html');
+	return render_template('feedback.html')
 
 @app.route('/hands_on.html', methods = ['POST', 'GET'])
 def hands_on():
-	return render_template('hands_on.html');
+	return render_template('hands_on.html')
 
 @app.route('/I-MSV.html', methods = ['POST', 'GET'])
 def I_MSV():
-	return render_template('I-MSV.html');
+	return render_template('I-MSV.html')
 
 @app.route('/references.html', methods = ['POST', 'GET'])
 def references():
-	return render_template('references.html');
+	return render_template('references.html')
 
 @app.route('/resources.html', methods = ['POST', 'GET'])
 def resources():
-	return render_template('resources.html');
+	return render_template('resources.html')
 
 @app.route('/data_key', methods = ['POST', 'GET'])
 def data_key_download():
-# 	return render_template('resources.html');
+# 	return render_template('resources.html')
     fileobj = io.BytesIO()
     with zipfile.ZipFile(fileobj, 'w') as zip_file:
         zip_info = zipfile.ZipInfo(FILEPATH)
@@ -83,27 +84,70 @@ def data_key_download():
     response.headers.set('Content-Disposition', 'attachment', filename='%s.zip' % os.path.basename(FILEPATH))
     return response
 
+
+@app.route('/request_imsv_dataset.html', methods = ['POST'])
+def imsv_dataset_download():
+    name = request.form['name']
+    affiliation = request.form['affiliation']
+    address = '"' + ', '.join(request.form['address'].splitlines()) + '"'
+    purpose = '"' + ', '.join(request.form['purpose'].splitlines()) + '"'
+    email = request.form['email']
+    alt_email = ''
+    if 'alt_email' in request.form.keys():
+        alt_email = request.form['alt_email']
+    license_aggreement = 'No'
+    if 'license_aggreement' in request.form.keys():
+        license_aggreement = 'Yes'
+    add_to_mailing_list = 'No'
+    if 'add_to_mailing_list' in request.form.keys():
+        add_to_mailing_list = 'Yes'
+    
+    print('I-MSV dataset request:\n-----------------------------------')
+    print(f'name={name}')
+    print(f'affiliation={affiliation}')
+    print(f'address={address}')
+    print(f'purpose={purpose}')
+    print(f'email={email}')
+    print(f'alt_email={alt_email}')
+    print(f'license_aggreement={license_aggreement}')
+    print(f'add_to_mailing_list={add_to_mailing_list}')
+    
+    status = 'Failed'
+    try:
+        dataset_request_fName = OPDIR + '/Dataset_Request.csv'
+        if not os.path.exists(dataset_request_fName):
+            with open(dataset_request_fName, 'a+') as fid:
+                fid.write('name,affiliation,address,purpose,email,alternate email,agreeing with license terms,add to mail list\n')
+        with open(dataset_request_fName, 'a+') as fid:
+            fid.write(f'{name},{affiliation},{address},{purpose},{email},{alt_email},{license_aggreement},{add_to_mailing_list}\n')
+        status = 'Success'
+    except:
+        print('Failed to save form details for I-MSV data request')
+    
+    return render_template('I-MSV.html', remark=status)
+
+
 @app.route('/self_evaluation.html', methods = ['POST', 'GET'])
 def self_evaluation():
-	return render_template('self_evaluation.html');
+	return render_template('self_evaluation.html')
 
 @app.route('/SRS.html', methods = ['POST', 'GET'])
 def SRS():
-	return render_template('SRS.html');
+	return render_template('SRS.html')
 
 @app.route('/demo.html', methods = ['POST', 'GET'])
 def demo():
-	return render_template('demo.html');
+	return render_template('demo.html')
 
 #This route load the registration page for the user
 @app.route('/registration.html', methods = ['POST', 'GET'])
 def registration():
-	return render_template('registration.html');
+	return render_template('registration.html')
 
 #This route loads the verification page for the user
 @app.route('/verification.html', methods = ['POST', 'GET'])
 def testing():
-	return render_template('verification.html');
+	return render_template('verification.html')
 
 #This route performs the following functionalities:
 #Fetches speaker details from the HTML form and store it in the csv file
@@ -114,13 +158,13 @@ def testing():
 @app.route('/uploadTAudio', methods = ['POST'])
 def uploadTAudio():
 	if request.method == 'POST':
-		file = request.files['audioChunk'];
-		firstName = request.form['firstName'];
-		lastName = request.form['lastName'];
-		gender = request.form['gender'];
-		age = request.form['age'];
+		file = request.files['audioChunk']
+		firstName = request.form['firstName']
+		lastName = request.form['lastName']
+		gender = request.form['gender']
+		age = request.form['age']
 		
-		speakerID = firstName[0].upper()+lastName[0].upper()+gender+age;
+		speakerID = firstName[0].upper()+lastName[0].upper()+gender+age
 		
 		row = [firstName, lastName, gender, age, speakerID]
 
@@ -129,18 +173,18 @@ def uploadTAudio():
 		print(isTraindir)
 		print(isTestdir)
 		if isTraindir == False and isTestdir == False: 
-			os.mkdir(TRAIN_FOLDER + speakerID);
-			os.mkdir(TEST_FOLDER + speakerID);
-			print('Training directory for ' + speakerID +' created successfully.');
-			print('Verification directory for ' +speakerID +' created successfully.');
+			os.mkdir(TRAIN_FOLDER + speakerID)
+			os.mkdir(TEST_FOLDER + speakerID)
+			print('Training directory for ' + speakerID +' created successfully.')
+			print('Verification directory for ' +speakerID +' created successfully.')
 		else:
 			print('Directory already exists for the speaker!')
 			print('Skipping the directory creation for Training Data...')
 			print('Skipping the directory creation for Testing Data...')
-		csvfile = open('static/speaker_info.csv', 'a', newline='');
-		writer = csv.writer(csvfile);
-		writer.writerow(row);
-		csvfile.close();
+		csvfile = open('static/speaker_info.csv', 'a', newline='')
+		writer = csv.writer(csvfile)
+		writer.writerow(row)
+		csvfile.close()
 		file_name = speakerID + ".wav"
 		full_file_name = os.path.join(TRAIN_FOLDER+speakerID, file_name)
 		file.save(full_file_name)
@@ -164,7 +208,6 @@ def uploadTAudio():
 		return return_string
 
 
-
 #This route performs the following functionalities:
 #Fetches the speaker ID from the web browser and checks whether it is in the testing direcory or not
 #Fetches the audio from web browser and stores it in the current speaker's testing directory
@@ -174,10 +217,10 @@ def uploadTAudio():
 @app.route('/uploadVAudio', methods = ['POST'])
 def uploadVAudio():
 	if request.method == 'POST':
-		file = request.files['audioChunk'];
-		sid = request.form['sid'].upper();
+		file = request.files['audioChunk']
+		sid = request.form['sid'].upper()
 
-		csv_file = open('static/speaker_info.csv', "r");
+		csv_file = open('static/speaker_info.csv', "r")
 		reader = csv.reader(csv_file)
 		isFound = False
 		for row in reader:
@@ -195,7 +238,7 @@ def uploadVAudio():
 			path2str  = "static/test_data/"  
 			#id=sid
 			sr=8000
-			#%%
+
 			wavfilepath=path2str + sid + '/' + sid + '.wav'
 			y,sr = lb.load(wavfilepath, sr=sr)
 			features = extract_features(y,sr)
@@ -217,10 +260,10 @@ def uploadVAudio():
 			#print(f'verification status={op} (1=Recognized; 0=Not Recognized)')
 			if op == 1:
 				#output = "Speaker Recognized"
-				return "1";
+				return "1"
 			else:
 				#output = "Speaker not Recognized"
-				return "0";
+				return "0"
 		else:
 			return "-1"
 

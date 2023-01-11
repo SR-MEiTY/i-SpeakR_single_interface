@@ -3,15 +3,47 @@ For laptop screens
 */
 @media only screen and (min-width: 720px)
 {
+	ul{
+		position: relative;
+		width: 90%;
+		margin: auto;
+	}
 	li{
 		padding: 5px;
 		margin: auto;
 	}
+	table{
+		position: relative;
+		width: 100%;
+		margin: auto;
+		border-collapse: collapse;
+	}
 	td{
-		padding: 5px;
+		margin-bottom: 15px;
 	}
 	tr{
-		margin: 10px;
+		position: relative;
+		width: 100%;
+		border-bottom: 0.5px solid #BDD;
+	}
+	input{		
+		position: relative;
+		width: 90%;
+		height: 25px;
+	}
+	textarea{
+		position: relative;
+		width: 90%;
+		height: 4em;
+		resize: none;
+	}
+	.title_col{
+		position: relative;
+		width: 15%;
+	}
+	.data_col{
+		position: relative;
+		width: 35%;
 	}
 	.flex_row{
 		display: flex;
@@ -51,14 +83,57 @@ For laptop screens
 	.submenu_item:hover{
 		box-shadow: 1px 1px 1px 3px rgba(216, 235, 240, 1);
 	}
+	.submenu_item_unselected{
+		border-right: 10px solid transparent;
+		background-color: rgba(216, 235, 240, 0.5);
+	}
+	.submenu_item_selected{
+		border-right: 10px solid rgba(28, 18, 222, 1);
+		background-color: rgba(216, 235, 240, 1);		
+	}
 	.information_item{
 		width: 90%;
 		display: none;
 		padding: 10px;
 		margin: auto;
 	}
+	.request_form{
+		display: none;
+		position: fixed;
+		top: 30%;
+		left: 10%;
+		width: 80%;
+		margin: auto;
+		background-color: white;
+		border: 3px solid #BDD;
+		border-radius: 10px;
+		z-index: 1;
+		font-size: 12px;
+		padding: 5px;
+	}
+	.submit_button{
+		width: 100px; 
+		height: 20%; 
+		padding: 10px; 
+		border-radius: 5px; 
+		background-color: rgb(50, 168, 82); 
+		color: white; 
+		font-weight: 900; 
+		border: none;
+		text-align: center;
+	}
+	.cancel_button{
+		width: 100px; 
+		height: 20%; 
+		padding: 10px; 
+		border-radius: 5px; 
+		background-color: gray; 
+		color: white; 
+		font-weight: 900; 
+		border: none;
+		text-align: center;
+	}
 }
-
 
 
 /*
@@ -66,15 +141,39 @@ For mobile screens
 */
 @media only screen and (max-width: 720px)
 {
+	ul{
+		position: relative;
+		width: 90%;
+		margin: auto;
+	}
 	li{
 		padding: 5px;
 		margin: auto;
+	}
+	table{
+		position: relative;
+		width: 100%;
+		margin: auto;
+		border-collapse: collapse;
 	}
 	td{
 		padding: 5px;
 	}
 	tr{
-		margin: 10px;
+		position: relative;
+		width: 100%;
+		border-bottom: 3px solid #BDD;
+	}
+	input{		
+		position: relative;
+	}
+	.title_col{
+		position: relative;
+		width: 30%;
+	}
+	.data_col{
+		position: relative;
+		width: 80%;
 	}
 	.flex_row{
 		display: flex;
@@ -126,10 +225,34 @@ For mobile screens
 	.submenu_item:hover{
 		box-shadow: 1px 1px 1px 3px rgba(216, 235, 240, 1);
 	}
+	.submenu_item_unselected{
+		border-right: 10px solid transparent;
+		background-color: rgba(216, 235, 240, 0.5);
+	}
+	.submenu_item_selected{
+		border-right: 10px solid rgba(28, 18, 222, 1);
+		background-color: rgba(216, 235, 240, 1);		
+	}
 	.information_item{
 		width: 90%;
 		display: none;
 		padding: 2%;
 		margin: auto;
+	}
+	.request_form{
+		position: relative;
+		width: 100%;
+		margin: auto;
+		padding: 20px 0px 0px 0px;
+	}
+	.submit_button{
+		width: 40%; 
+		height: 20%; 
+		padding: 10px; 
+		border-radius: 5px; 
+		background-color: rgb(50, 168, 82); 
+		color: white; 
+		font-weight: 900; 
+		border: none;
 	}
 }

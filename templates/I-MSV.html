@@ -19,24 +19,39 @@
 
 		<script type="text/javascript">
 			function display_info(id){
-				var els = document.getElementsByClassName("submenu_item");
-				Array.prototype.forEach.call(els, function(el){
-				    el.style.borderRight = "10px solid transparent";
-				    el.style.backgroundColor = "rgba(216, 235, 240, 0.5)";
+				var elems = document.getElementsByClassName("submenu_item");
+				Array.prototype.forEach.call(elems, function(el){
+				    //el.style.borderRight = "10px solid transparent";
+				    //el.style.backgroundColor = "rgba(216, 235, 240, 0.5)";
+					el.classList.add("hyperlink");
+					el.classList.remove("submenu_item_selected");
+					el.classList.add("submenu_item_unselected");
 				});
-				var els = document.getElementsByClassName("information_item");
-				Array.prototype.forEach.call(els, function(el){
+				var elems = document.getElementsByClassName("information_item");
+				Array.prototype.forEach.call(elems, function(el){
 				    el.style.display = "none";
 				});
-				document.getElementById(id).style.borderRight = "10px solid rgba(28, 18, 222, 1)";
-				document.getElementById(id).style.backgroundColor = "rgba(216, 235, 240, 1)";
+				//document.getElementById(id).style.borderRight = "10px solid rgba(28, 18, 222, 1)";
+				//document.getElementById(id).style.backgroundColor = "rgba(216, 235, 240, 1)";
 				document.getElementById(id+"_info").style.display = "block";
+				document.getElementById(id).classList.remove("hyperlink");
+				document.getElementById(id).classList.add("submenu_item_selected");
+			}
+			
+			function request_dataset_form(state){
+				var form_elem =  document.getElementById("imsv_dataset_request_form");
+				if(state=="show"){
+					form_elem.style.display = "block";
+				}
+				else if(state=="hide"){
+					form_elem.style.display = "none";
+				}
 			}
 		</script>
     	<script type="text/javascript" src="static/js/core.js"></script>
 	</head>
 
-	<body lang="en-IN" id="body_tag">
+	<body lang="en-IN" id="body_tag" onload="display_info('about')">
 		
 		<div class="accessibility_pane">
 			<div class="light_mode hyperlink" id="light_mode" onclick="change_page_theme('light')" style="display: none;" title="Change to light mode"></div>
@@ -114,24 +129,29 @@
 			<div class="content_space flex_row">				
 
 				<div class="flex_col sub_menu">
-					<div class="submenu_item hyperlink" id="about" onclick="display_info(this.id)">I-MSV Challenge 2022</div>
+					<!--<div class="submenu_item hyperlink" id="about" onclick="display_info(this.id)">I-MSV Challenge 2022</div>-->
+					<div class="submenu_item hyperlink" id="about" onclick="display_info(this.id)">About</div>
 					<div class="submenu_item hyperlink" id="rules" onclick="display_info(this.id)"> Rules</div>
-					<div class="submenu_item hyperlink" id="data" onclick="display_info(this.id)">Nature of Speech Data</div>
-					<div class="submenu_item hyperlink" id="submission" onclick="display_info(this.id)">Submission Guidelines</div>
+					<div class="submenu_item hyperlink" id="data" onclick="display_info(this.id)">Dataset</div>
+					<!--<div class="submenu_item hyperlink" id="submission" onclick="display_info(this.id)">Submission Guidelines</div>
 					<div class="submenu_item hyperlink" id="timeline" onclick="display_info(this.id)">Timeline</div>
-					<div class="submenu_item hyperlink" id="registration" onclick="display_info(this.id)">Registration</div>
+					<div class="submenu_item hyperlink" id="registration" onclick="display_info(this.id)">Registration</div>-->
+					<div class="submenu_item hyperlink" id="imsv_challenge_2022" onclick="display_info(this.id)">I-MSV Challenge 2022</div>
 					<div class="submenu_item hyperlink" id="organizer" onclick="display_info(this.id)">Organizer</div>
 				</div>
 
 				<div class="information flex_col">
+					{% if remark %}<p>Status of dataset request form: {{remark}}</p><script type="text/javascript">window.alert('Dataset request form successfully submitted');</script>{% endif %}
 					<div class="information_item align_center" id="about_info" style="display: block;">
-						<div class="heading2">Indic-Multilingual Speaker Verification (I-MSV)</div>
+						<div class="heading2">Indic-Multilingual Speaker Verification challenge</div>
 						<div class="text">
 							Speaker verification (SV) is the task of verifying whether an input utterance matches the claimed identity.  Though there exists an ample amount of research in  SV technologies, the development concerning a multilingual conversation is limited.  In a country like India, almost all the speakers are multilingual and the speaking style changes from one geographical region to another.  Consequently,  the development of a multilingual SV (MSV) system on the data collected in the Indian scenario is more challenging.  With this motivation, the COCOSDA INDIC- Multilingual Speaker Verification (I-MSV) Challenge 2022 has been designed for understanding and comparing the state-of-the-art  SV techniques using speech data from 13 Indian languages collected using five different sensors. The goal of this challenge is to make the SV system robust to language and sensor variations between enrollment and testing. There will be two types of tasks namely constrained SV and unconstrained SV involved in I-MSV Challenge 2022.
 
 						</div>
 					</div>
+
 					<div class="information_item" id="rules_info">
+						<div class="heading2">Rules</div>
 						<div class="text">
 							The I-MLSV challenge consists of two tracks namely, Track 1 (Constrained SV) and Track 2 (Unconstrained SV). The evaluation rule for both the tracks is as follows:
 
@@ -155,7 +175,12 @@
 							</ul>
 						</div>
 					</div>
+
 					<div class="information_item" id="data_info">
+						<div style="display: flex; justify-content: space-between;">
+							<span class="heading2">I-MSV Dataset</span>
+							<span class="submit_button hyperlink" onclick="request_dataset_form('show');"/>Download</span>
+						</div>
 						<div class="text">
 							<ul>
 							<li><b>Developmental data</b>: Developmental data consists of speech data in Indian languages, collected in multiple sessions using five different sensors.</li>
@@ -171,9 +196,58 @@
 							</li>
 							<li><b>Private test data</b>: In private test data, the test utterances are collected using different languages and five sensors, including the sensor used for collecting the enrollment data. The duration of test data varies from 10 to 60 sec.</li>
 							</ul>
+
+							<div class="request_form" id="imsv_dataset_request_form">
+								<div class="heading2">I-MSV dataset request form</div>
+								<b style="font-size: 12px;">If you wish to obtain the I-MSV dataset for Research & Development purposes, please fill in the following request form to apply for a license for the dataset. Once your request is verified by the owners, an URL to download the data will be emailed to you. Items marked with <span style="color:red">*</span> are mandatory.</b>
+								<br/><br/>
+								<form method="POST" action="/request_imsv_dataset.html">
+									<table>
+										<tr>
+											<td class="title_col">Name<span style="color:red">*</span></td>
+											<td class="data_col"><input type="text" name="name" placeholder="First Name <space> Last Name" required/></td>
+											<td class="title_col">Affiliation<span style="color:red">*</span></td>
+											<td class="data_col"><input type="text" name="affiliation" placeholder="Full name of the licensee's organization" required/></td>
+										</tr>
+										<tr>
+											<td class="title_col">Address<span style="color:red">*</span></td>
+											<td class="data_col"><textarea id="address_input" name="address" placeholder="Address for communication" required></textarea></td>
+											<td class="title_col">Purpose<span style="color:red">*</span></td>
+											<td class="data_col"><textarea minlength="25" id="purpose_input" name="purpose" placeholder="Purpose of obtaining the dataset" title="Minimum length 25 characters" required></textarea></td>
+										</tr>
+										<tr>
+											<td class="title_col">Email address<span style="color:red">*</span></td>
+											<td class="data_col"><input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="text" name="email" placeholder="123@abc.xyz" required/></td>
+											<td class="title_col">Alternate email</td>
+											<td class="data_col"><input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="text" name="alt_email" placeholder="123@abc.xyz"/></td>
+										</tr>
+										<tr>
+											<td class="title_col">Declaration<span style="color:red">*</span><input type="checkbox" name="license_aggreement" required/></td>
+											<td class="data_col" colspan=3>
+												<ol style="position: relative; width: 90%; margin: auto;">
+													<li>This dataset will only be used for research and development activities within the licensee's organization.</li>
+													<li>This dataset or its components will not be comercialized in any manner that leads to earning financial profits.</li>
+													<li>This dataset will not be distributed to others without the express consent of the creators/owners.</li>
+												</ol>
+											</td>
+										</tr>
+										<tr>
+											<td class="title_col"><input type="checkbox" name="add_to_mailing_list"/></td>
+											<td class="data_col" colspan=3>Do you wish to be included in our mailing list to receive future notifications?</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;" colspan=2><input type="submit" name="submit" value="Submit" class="submit_button hyperlink"/></td>
+											<td style="text-align: center;" colspan=2><input type="button" value="Cancel" class="cancel_button hyperlink" onclick="request_dataset_form('hide');"/></td>
+										</tr>
+									</table>
+								</form>
+							</div>
 						</div>
 					</div>
-					<div class="information_item" id="submission_info">
+
+					<!--<div class="information_item" id="submission_info">-->
+					<div class="information_item" id="imsv_challenge_2022_info">
+						<div class="heading2">2022 Edition</div>
 						<div class="text">
 							<ul>
 							<li>Multiple submissions are allowed but under a limitation of each phase, the evaluation result is based on the submission having the lowest EER.</li>
@@ -196,10 +270,14 @@
 							0.97285<br/>
 							</li>
 							</ul>						
+							<br/>
+<!--
 						</div>
 					</div>
+
 					<div class="information_item" id="timeline_info">
 						<div class="text">
+-->
 							<table>
 							<tr>
 							<td>Challenge registration open </td><td> July 25th, 2022</td>
@@ -226,13 +304,19 @@
 							<td>Announcing the ranking winners </td><td> November 24-26th, 2022</td>
 							</tr>
 							</table>
+							<br/>
+<!--
 						</div>
+
 					</div>
+
 					<div class="information_item" id="registration_info">
 						<div class="text">
+-->
 							Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6j07q-yaj8-spovmJXkQug2eVIlhfG7W-c-Y4f83TxW3ecg/viewform" target="_blank">here</a> to register for the I-MSV challenge.
 						</div>
 					</div>
+
 					<div class="information_item" id="organizer_info">
 						<div class="text">
 							Team NLTM Speaker recognition, India<br/><br/><br/><br/>
@@ -241,6 +325,7 @@
 							Regarding any queries, kindly write to us at <a href=mailto:jagabandhu.mishra.18@iitdh.ac.in">jagabandhu.mishra.18@iitdh.ac.in</a>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
